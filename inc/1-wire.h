@@ -19,5 +19,11 @@ void DQ_free();
 void DQ_null();
 void one_wire_reset();
 void one_wire_tx(char data);
+
 int one_wire_rx();
+/**--------------------------------------------------
+ * @brief: read one byte from one-wire bus 
+ * @return: one_wire_buffer (1-byte)
+ *--------------------------------------------------*/
+
 void one_wire_READ_ROM();
