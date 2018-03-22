@@ -86,11 +86,6 @@ void one_wire_tx(char data)
   }
 }
 
-/*--------------------------------------------------
- * @name: one_wire_rx
- * @brief: read one byte from one-wire bus 
- * @return: one_wire_buffer (1-byte)
- *--------------------------------------------------*/
 int one_wire_rx()
 {
   one_wire_buffer=0;
