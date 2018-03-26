@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <i2c.h>
 #include <ssd1306.h>
-#include <grbuf.h>
+#include <grBuf.h>
 
 extern uint8_t grBuffer[128][8];
 

@@ -41,6 +41,9 @@ void grBuffer_rectangle(int x0, int y0, int x1, int y1);
  *@param: y1: y end coordinate (bottom-left)
  --------------------------------------------------*/
 
+void grBuffer_print_char(uint8_t symbol);
+
+
 void grBuffer_clear_all();
 /**--------------------------------------------------
  *@brief: clear all graphical buffer (set 0)

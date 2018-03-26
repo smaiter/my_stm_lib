@@ -2,7 +2,7 @@
 //author: alexand_dm
 //version 0.1: created 2018-03-13
 #include <stdint.h>
-#include <grbuf.h>
+#include <grBuf.h>
 uint8_t grBuffer[WIDTH+1][HEIGHT/8]; 
 
 void grBuffer_line_vertical(int x0, int y0, int y1) {
@@ -30,6 +30,11 @@ void grBuffer_clear_all() {
       grBuffer[i][j]=0;
     }
   }
+}
+
+void grBuffer_print_char(uint8_t symbol) {
+
+
 }
 
 void grBuffer_pixel(int x, int y){
