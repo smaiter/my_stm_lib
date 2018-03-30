@@ -3,7 +3,11 @@
 //version 0.1: created 2018-03-13
 #include <stdint.h>
 #include <grBuf.h>
+#include <font_arial_8pt.h>
 uint8_t grBuffer[WIDTH+1][HEIGHT/8]; 
+
+static uint8_t cur_pos_x = 0;
+static uint8_t cur_pos_y = 0;
 
 void grBuffer_line_vertical(int x0, int y0, int y1) {
   for (int i = 0; i<= (y1-y0); i++) {
@@ -34,7 +38,36 @@ void grBuffer_clear_all() {
 
 void grBuffer_print_char(uint8_t symbol) {
 
+  uint8_t width = font_arial_8ptDescriptors[symbol-33][0]; //width of the printing symbol
+  int8_t height = font_arial_8ptInfo[4]; //real height of the printing symbol
+  uint16_t bitmap = font_arial_8ptDescriptors[symbol-33][1]; //offset of printing symbol 
+  uint8_t bit_pos; 
+  uint8_t bit_pos_max;
 
+  cur_pos_y = cur_pos_y - height; //set cursor to the top-left positon of character
+
+  while (height >0) {
+
+    if (height>=8) 
+      bit_pos_max=7;   //7 becouse count from 0 to 7, not from 1 to 8 
+    else 
+      bit_pos_max=height-1;
+
+    for (char column = 0; column <= width-1; column++) {
+      for (bit_pos = 0; bit_pos <= bit_pos_max ; bit_pos++) {
+        if ((font_arial_8ptBitmaps[bitmap]>>bit_pos) & 0x1) 
+          grBuffer_pixel(cur_pos_x + column, cur_pos_y + bit_pos);
+      } 
+      bitmap++;
+    } 
+    height=height -8;
+  }
+}
+
+void grBuffer_cur_pos(uint8_t x, uint8_t y) {
+  //bottom left position of the character
+  cur_pos_x = x;
+  cur_pos_y = y;
 }
 
 void grBuffer_pixel(int x, int y){

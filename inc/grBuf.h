@@ -43,6 +43,12 @@ void grBuffer_rectangle(int x0, int y0, int x1, int y1);
 
 void grBuffer_print_char(uint8_t symbol);
 
+void grBuffer_cur_pos(uint8_t x, uint8_t y);
+/**--------------------------------------------------
+ *@brief: set cursor position to x y coordinate 
+ *@param: x: x coordinate 
+ *@param: y: y coordinate 
+--------------------------------------------------*/
 
 void grBuffer_clear_all();
 /**--------------------------------------------------

@@ -1,9 +1,11 @@
-// 
+//  Generate by program "TheDotFactory" 
 //  Font data for Arial 8pt
-// 
+//
+#include <stdint.h>
+#include <font_arial_8pt.h>
 
 // Character bitmaps for Arial 8pt
-const uint_8 arial_8ptBitmaps[] = 
+const uint8_t font_arial_8ptBitmaps[] = 
 {
 	// @0 '!' (1 pixels wide)
 	// #
@@ -1324,7 +1326,7 @@ const uint_8 arial_8ptBitmaps[] =
 
 // Character descriptors for Arial 8pt
 // { [Char width in bits], [Offset into arial_8ptCharBitmaps in bytes] }
-const FONT_CHAR_INFO arial_8ptDescriptors[] = 
+const uint16_t font_arial_8ptDescriptors[127][2] = 
 {
 	{1, 0}, 		// ! 
 	{3, 2}, 		// " 
@@ -1385,7 +1387,7 @@ const FONT_CHAR_INFO arial_8ptDescriptors[] =
 	{7, 550}, 		// Y 
 	{6, 564}, 		// Z 
 	{2, 576}, 		// [ 
-	{3, 580}, 		// \ 
+	{3, 580}, 		// "\" 
 	{2, 586}, 		// ] 
 	{5, 590}, 		// ^ 
 	{6, 600}, 		// _ 
@@ -1423,13 +1425,12 @@ const FONT_CHAR_INFO arial_8ptDescriptors[] =
 };
 
 // Font information for Arial 8pt
-const FONT_INFO arial_8ptFontInfo =
+const uint8_t font_arial_8ptInfo[5] =
 {
 	2, //  Character height
 	'!', //  Start character
 	'~', //  End character
 	2, //  Width, in pixels, of space character
-	arial_8ptDescriptors, //  Character descriptor array
-	arial_8ptBitmaps, //  Character bitmap array
+  10 // Real height of chatacter in pixels (bits)
 };
 
